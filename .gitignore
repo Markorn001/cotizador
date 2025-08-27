@@ -1,0 +1,76 @@
+# CodeIgniter specific
+application/cache/*
+!application/cache/index.html
+application/logs/*
+!application/logs/index.html
+application/config/development/
+application/config/testing/
+application/config/production/
+
+# System files
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Dependencies
+vendor/
+node_modules/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Uploads (if any)
+uploads/
+user_uploads/
+
+# Database files
+*.sql
+*.db
+
+# Backup files
+*.backup
+*.old
+
+application/cache/*
+!application/cache/index.html
+
+application/logs/*
+!application/logs/index.html
+
+!application/*/.htaccess
+
+composer.lock
+tests/mocks/database/ci_test.sqlite
+
+user_guide_src/build/*
+user_guide_src/cilexer/build/*
+user_guide_src/cilexer/dist/*
+user_guide_src/cilexer/pycilexer.egg-info/*
+/vendor/
+
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+/tests/tests/
+/tests/results/
