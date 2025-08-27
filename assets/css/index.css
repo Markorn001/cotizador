@@ -1,0 +1,379 @@
+/* ========================================
+   COTIZADOR - CSS PRINCIPAL
+   ======================================== */
+/* 
+   Este archivo importa todos los estilos CSS del sistema
+   Para usar solo este archivo, incluye: assets/css/index.css
+   
+   Para mejor rendimiento, incluye solo los archivos necesarios:
+   - main.css (variables y estilos base)
+   - navbar.css (navegación)
+   - cards.css (tarjetas y componentes)
+   - forms.css (formularios)
+   - tables.css (tablas y badges)
+   - utilities.css (utilidades y alertas)
+*/
+
+/* Importar todos los archivos CSS */
+@import url('main.css');
+@import url('navbar.css');
+@import url('cards.css');
+@import url('forms.css');
+@import url('tables.css');
+@import url('utilities.css');
+
+/* ========================================
+   ESTILOS ADICIONALES ESPECÍFICOS
+   ======================================== */
+
+/* Mejoras para el sistema de cotizador */
+.quote-system {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-dark-light) 100%);
+    min-height: 100vh;
+}
+
+.quote-header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.quote-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Animaciones específicas del sistema */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Estilos para el logo */
+.logo-container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.login-logo {
+    max-width: 120px;
+    height: auto;
+    border-radius: var(--border-radius-small);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: var(--transition);
+}
+
+.login-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive para el logo */
+@media (max-width: 576px) {
+    .login-logo {
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 400px) {
+    .login-logo {
+        max-width: 80px;
+    }
+}
+
+/* Mejoras para el dashboard */
+.dashboard-stats {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.dashboard-stats .stats-card:nth-child(1) { animation-delay: 0.1s; }
+.dashboard-stats .stats-card:nth-child(2) { animation-delay: 0.2s; }
+.dashboard-stats .stats-card:nth-child(3) { animation-delay: 0.3s; }
+.dashboard-stats .stats-card:nth-child(4) { animation-delay: 0.4s; }
+.dashboard-stats .stats-card:nth-child(5) { animation-delay: 0.5s; }
+.dashboard-stats .stats-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Estilos para el login */
+.login-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-dark-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: scaleIn 0.5s ease-out;
+}
+
+/* Mejoras para las tablas de usuarios */
+.users-table-container {
+    animation: slideUp 0.6s ease-out;
+}
+
+.users-table .table tbody tr {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.users-table .table tbody tr:nth-child(1) { animation-delay: 0.1s; }
+.users-table .table tbody tr:nth-child(2) { animation-delay: 0.2s; }
+.users-table .table tbody tr:nth-child(3) { animation-delay: 0.3s; }
+.users-table .table tbody tr:nth-child(4) { animation-delay: 0.4s; }
+.users-table .table tbody tr:nth-child(5) { animation-delay: 0.5s; }
+
+/* Estilos para el perfil de usuario */
+.profile-section {
+    background: linear-gradient(135deg, var(--primary-yellow) 0%, #e6b31e 100%);
+    color: var(--primary-dark);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--primary-yellow);
+    margin: 0 auto 1rem;
+}
+
+/* Estilos para notificaciones */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Estilos para el footer */
+.footer {
+    background: var(--primary-dark);
+    color: var(--primary-white);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.footer a {
+    color: var(--primary-yellow);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer a:hover {
+    color: var(--primary-yellow-hover);
+    text-decoration: underline;
+}
+
+/* Estilos para el sidebar (si se implementa) */
+.sidebar {
+    background: var(--primary-dark);
+    color: var(--primary-white);
+    min-height: 100vh;
+    width: 250px;
+    transition: var(--transition);
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar-nav .nav-link {
+    color: var(--primary-white);
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius-small);
+    margin: 0.25rem 0;
+    transition: var(--transition);
+}
+
+.sidebar-nav .nav-link:hover,
+.sidebar-nav .nav-link.active {
+    background: var(--primary-yellow);
+    color: var(--primary-dark);
+}
+
+/* Estilos para el breadcrumb */
+.breadcrumb {
+    background: transparent;
+    padding: 0.75rem 0;
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    color: var(--text-muted);
+}
+
+.breadcrumb-item.active {
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+/* Estilos para tooltips personalizados */
+.custom-tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.custom-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-dark);
+    color: var(--primary-white);
+    padding: 0.5rem;
+    border-radius: var(--border-radius-small);
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.custom-tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estilos para modales personalizados */
+.custom-modal .modal-header {
+    background: var(--primary-yellow);
+    color: var(--primary-dark);
+    border-bottom: none;
+}
+
+.custom-modal .modal-footer {
+    border-top: none;
+    padding: 1rem 1.5rem;
+}
+
+/* Estilos para paginación personalizada */
+.custom-pagination .page-link {
+    color: var(--primary-dark);
+    border: 1px solid #dee2e6;
+    margin: 0 0.125rem;
+    border-radius: var(--border-radius-small);
+    transition: var(--transition);
+}
+
+.custom-pagination .page-link:hover {
+    background: var(--primary-yellow);
+    border-color: var(--primary-yellow);
+    color: var(--primary-dark);
+}
+
+.custom-pagination .page-item.active .page-link {
+    background: var(--primary-yellow);
+    border-color: var(--primary-yellow);
+    color: var(--primary-dark);
+}
+
+/* Estilos para el loader */
+.loader {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(254, 196, 34, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-yellow);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilos para el scroll personalizado */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--primary-yellow);
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-yellow-hover);
+}

@@ -8,6 +8,7 @@ class Login extends CI_Controller {
         // Cargar helpers necesarios
         $this->load->helper(['url', 'form']);
         $this->load->library(['form_validation', 'session']);
+        $this->load->model('User_model');
     }
 
     public function index() {
@@ -27,15 +28,20 @@ class Login extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('login_view');
         } else {
-            // Aquí iría la lógica de autenticación
-            // Por ahora solo simulamos el login
+            // Autenticación usando el modelo
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             
-            // Validación simple (en producción usarías base de datos)
-            if ($username === 'admin' && $password === 'admin') {
+            $user = $this->User_model->verify_login($username, $password);
+            
+            if ($user) {
                 $this->session->set_userdata('logged_in', true);
-                $this->session->set_userdata('username', $username);
+                $this->session->set_userdata('user_id', $user->id);
+                $this->session->set_userdata('username', $user->username);
+                $this->session->set_userdata('full_name', $user->full_name);
+                $this->session->set_userdata('role', $user->role);
+                $this->session->set_userdata('email', $user->email);
+                
                 redirect('dashboard');
             } else {
                 $this->session->set_flashdata('error', 'Usuario o contraseña incorrectos');

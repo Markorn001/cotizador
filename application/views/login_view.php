@@ -11,15 +11,15 @@
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/forms.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/utilities.css'); ?>">
+    
+    <!-- Estilos específicos del login -->
     <style>
-        :root {
-            --primary-dark: #1D1D1B;
-            --primary-yellow: #FEC422;
-            --primary-white: #FFFFFF;
-        }
-        
         body {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #2a2a28 100%);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-dark-light) 100%);
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -34,8 +34,8 @@
         
         .login-card {
             background: var(--primary-white);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 40px var(--shadow-heavy);
             overflow: hidden;
             max-width: 400px;
             width: 100%;
@@ -97,9 +97,9 @@
         .login-logo {
             max-width: 120px;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
+            border-radius: var(--border-radius-small);
+            box-shadow: 0 4px 15px var(--shadow-light);
+            transition: var(--transition);
         }
         
         .login-logo:hover {
@@ -114,40 +114,22 @@
             margin-bottom: 20px;
         }
         
-        .form-control {
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            padding: 15px 20px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary-yellow);
-            box-shadow: 0 0 0 0.2rem rgba(254, 196, 34, 0.25);
-        }
-        
-        .form-floating label {
-            color: #6c757d;
-            font-weight: 500;
-        }
-        
         .btn-login {
             background: var(--primary-yellow);
             border: none;
             color: var(--primary-dark);
             padding: 15px;
-            border-radius: 10px;
+            border-radius: var(--border-radius-small);
             font-weight: 600;
             font-size: 16px;
             width: 100%;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         
         .btn-login:hover {
-            background: #e6b31e;
+            background: var(--primary-yellow-hover);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(254, 196, 34, 0.4);
         }
@@ -160,28 +142,12 @@
             background: var(--primary-dark);
             border: 2px solid var(--primary-dark);
             color: var(--primary-white);
-            border-radius: 10px 0 0 10px;
+            border-radius: var(--border-radius-small) 0 0 var(--border-radius-small);
         }
         
         .input-group .form-control {
             border-left: none;
-            border-radius: 0 10px 10px 0;
-        }
-        
-        .alert {
-            border-radius: 10px;
-            border: none;
-            font-weight: 500;
-        }
-        
-        .alert-danger {
-            background: #f8d7da;
-            color: #721c24;
-        }
-        
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
+            border-radius: 0 var(--border-radius-small) var(--border-radius-small) 0;
         }
         
         .forgot-password {
@@ -193,7 +159,7 @@
             color: var(--primary-dark);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: var(--transition);
         }
         
         .forgot-password a:hover {
@@ -204,7 +170,7 @@
         @media (max-width: 576px) {
             .login-card {
                 margin: 10px;
-                border-radius: 15px;
+                border-radius: var(--border-radius-small);
             }
             
             .login-header {

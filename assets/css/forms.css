@@ -1,0 +1,302 @@
+/* ========================================
+   FORMS - ESTILOS DE FORMULARIOS
+   ======================================== */
+
+/* Controles de formulario base */
+.form-control,
+.form-select {
+    border: 2px solid var(--shadow-light);
+    border-radius: var(--border-radius-small);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: var(--primary-white);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-yellow);
+    box-shadow: 0 0 0 0.2rem rgba(254, 196, 34, 0.25);
+    outline: none;
+}
+
+.form-control.is-invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.form-control.is-valid {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Labels flotantes */
+.form-floating {
+    position: relative;
+}
+
+.form-floating > .form-control,
+.form-floating > .form-select {
+    height: calc(3.5rem + 2px);
+    line-height: 1.25;
+}
+
+.form-floating > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 1rem 0.75rem;
+    pointer-events: none;
+    border: 1px solid transparent;
+    transform-origin: 0 0;
+    transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+    color: var(--text-muted);
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+    opacity: 0.65;
+    transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+.form-floating > .form-control:focus ~ label {
+    color: var(--primary-yellow);
+}
+
+/* Input groups */
+.input-group-text {
+    background-color: var(--primary-dark);
+    border: 2px solid var(--primary-dark);
+    color: var(--primary-white);
+    border-radius: var(--border-radius-small) 0 0 var(--border-radius-small);
+    font-weight: 500;
+}
+
+.input-group .form-control {
+    border-left: none;
+    border-radius: 0 var(--border-radius-small) var(--border-radius-small) 0;
+}
+
+.input-group .form-control:focus {
+    border-left: none;
+}
+
+/* Botones de formulario */
+.btn {
+    border-radius: var(--border-radius-small);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--primary-yellow);
+    border-color: var(--primary-yellow);
+    color: var(--primary-dark);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-yellow-hover);
+    border-color: var(--primary-yellow-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(254, 196, 34, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: var(--primary-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-dark-light);
+    border-color: var(--primary-dark-light);
+    transform: translateY(-2px);
+}
+
+.btn-outline-secondary {
+    color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    background-color: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: var(--primary-white);
+    transform: translateY(-2px);
+}
+
+/* Estados de validación */
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+    animation: slideDown 0.3s ease-out;
+}
+
+.valid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #28a745;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Texto de ayuda */
+.form-text {
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: var(--text-muted);
+}
+
+/* Campos de solo lectura */
+.form-control[readonly] {
+    background-color: #f8f9fa;
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+/* Selects personalizados */
+.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    padding-right: 2.5rem;
+}
+
+.form-select:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23FEC422' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+}
+
+/* Campos de contraseña */
+.form-floating .form-control[type="password"] {
+    padding-right: 2.5rem;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.password-toggle:hover {
+    color: var(--primary-yellow);
+}
+
+/* Campos requeridos */
+.form-floating.required > label::after {
+    content: " *";
+    color: #dc3545;
+}
+
+/* Separadores */
+hr.my-4 {
+    border-color: var(--shadow-light);
+    opacity: 0.3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .form-floating > .form-control,
+    .form-floating > .form-select {
+        height: calc(3rem + 2px);
+    }
+    
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .d-flex.justify-content-between > div {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+}
+
+/* Animaciones */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos específicos para edición de usuarios */
+.user-info-section {
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius-small);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.user-info-section label {
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.user-info-section .form-control[readonly] {
+    background-color: var(--primary-white);
+    border-color: var(--shadow-light);
+    color: var(--primary-dark);
+}
+
+/* Campos de estado y rol */
+.status-active {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.status-inactive {
+    color: #6c757d;
+    font-weight: 600;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius-small);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.role-admin {
+    background-color: #dc3545;
+    color: white;
+}
+
+.role-supervisor {
+    background-color: #fd7e14;
+    color: white;
+}
+
+.role-vendedor {
+    background-color: #6f42c1;
+    color: white;
+}
