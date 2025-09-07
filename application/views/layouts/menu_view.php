@@ -47,12 +47,7 @@
                     </a>
                 </li>
                 <?php endif; ?>
-                <li class="nav-item">
-                    <a class="nav-link <?php echo (isset($active_menu) && $active_menu == 'configuracion') ? 'active' : ''; ?>" 
-                       href="<?php echo base_url('configuracion'); ?>">
-                        <i class="fas fa-cog me-1"></i>Configuración
-                    </a>
-                </li>
+              
                 <li class="nav-item ms-2">
                     <a href="<?php echo base_url('login/logout'); ?>" class="btn btn-logout">
                         <i class="fas fa-sign-out-alt me-1"></i>Cerrar Sesión

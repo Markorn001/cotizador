@@ -10,7 +10,7 @@ class User_model extends CI_Model {
 
     // Obtener todos los usuarios
     public function get_all_users() {
-        $this->db->select('id, username, email, full_name, role, status, created_at');
+        $this->db->select('id, username, email, full_name, phone, role, status, created_at');
         $this->db->from('users');
         $this->db->order_by('created_at', 'DESC');
         $query = $this->db->get();

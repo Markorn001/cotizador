@@ -36,6 +36,7 @@ class Users extends CI_Controller {
             $this->form_validation->set_rules('username', 'Usuario', 'required|min_length[3]|max_length[20]|is_unique[users.username]');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
             $this->form_validation->set_rules('full_name', 'Nombre Completo', 'required|min_length[3]|max_length[100]');
+            $this->form_validation->set_rules('phone', 'Número de Contacto', 'max_length[20]');
             $this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[6]');
             $this->form_validation->set_rules('confirm_password', 'Confirmar Contraseña', 'required|matches[password]');
             $this->form_validation->set_rules('role', 'Rol', 'required|in_list[admin,supervisor,vendedor]');
@@ -48,6 +49,7 @@ class Users extends CI_Controller {
                     'username' => $this->input->post('username'),
                     'email' => $this->input->post('email'),
                     'full_name' => $this->input->post('full_name'),
+                    'phone' => $this->input->post('phone'),
                     'password' => $this->input->post('password'),
                     'role' => $this->input->post('role')
                 ];
@@ -82,6 +84,7 @@ class Users extends CI_Controller {
             $this->form_validation->set_rules('username', 'Usuario', 'required|min_length[3]|max_length[20]');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
             $this->form_validation->set_rules('full_name', 'Nombre Completo', 'required|min_length[3]|max_length[100]');
+            $this->form_validation->set_rules('phone', 'Número de Contacto', 'max_length[20]');
             $this->form_validation->set_rules('password', 'Contraseña', 'min_length[6]');
             $this->form_validation->set_rules('confirm_password', 'Confirmar Contraseña', 'matches[password]');
             $this->form_validation->set_rules('role', 'Rol', 'required|in_list[admin,supervisor,vendedor]');
@@ -109,6 +112,7 @@ class Users extends CI_Controller {
                     'username' => $this->input->post('username'),
                     'email' => $this->input->post('email'),
                     'full_name' => $this->input->post('full_name'),
+                    'phone' => $this->input->post('phone'),
                     'role' => $this->input->post('role'),
                     'status' => $this->input->post('status')
                 ];

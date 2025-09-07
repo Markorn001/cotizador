@@ -100,6 +100,26 @@ ob_start();
                         <?php endif; ?>
                     </div>
 
+                    <div class="form-floating mb-3">
+                        <input type="tel" 
+                               class="form-control <?php echo (form_error('phone')) ? 'is-invalid' : ''; ?>" 
+                               id="phone" 
+                               name="phone" 
+                               value="<?php echo set_value('phone', isset($user->phone) ? $user->phone : ''); ?>" 
+                               placeholder="Número de Contacto">
+                        <label for="phone">
+                            <i class="fas fa-phone me-2"></i>Número de Contacto
+                        </label>
+                        <div class="form-text">
+                            <small>Ejemplo: +52 55 1234 5678 o 55-1234-5678</small>
+                        </div>
+                        <?php if(form_error('phone')): ?>
+                            <div class="invalid-feedback">
+                                <?php echo form_error('phone'); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-3">

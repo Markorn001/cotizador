@@ -52,3 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// Rutas para PDF Generator
+$route['pdf_generator/quotation/(:num)'] = 'pdf_generator/quotation/$1';
+$route['pdf_generator/test'] = 'pdf_generator/test';

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Factura PDF Automática</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #1D1D1B;
+    }
+    .invoice {
+      background: #FFFFFF;
+      padding: 40px;
+      margin: 50px auto;
+      max-width: 900px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(29, 29, 27, 0.3);
+    }
+    .invoice-header {
+      border-bottom: 2px solid #FEC422;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+    }
+    .invoice-footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #1D1D1B;
+      margin-top: 40px;
+      border-top: 2px solid #FEC422;
+      padding-top: 15px;
+    }
+    .btn-action {
+      margin-right: 10px;
+    }
+    .text-primary {
+      color: #FEC422 !important;
+    }
+    .text-secondary {
+      color: #1D1D1B !important;
+    }
+    .table-primary {
+      background-color: #FEC422 !important;
+      color: #1D1D1B !important;
+    }
+    .table-primary th {
+      background-color: #FEC422 !important;
+      color: #1D1D1B !important;
+      border-color: #1D1D1B !important;
+    }
+    .table-success {
+      background-color: #FEC422 !important;
+      color: #1D1D1B !important;
+    }
+    .table-success th {
+      background-color: #FEC422 !important;
+      color: #1D1D1B !important;
+      border-color: #1D1D1B !important;
+    }
+    .btn-primary {
+      background-color: #FEC422 !important;
+      border-color: #FEC422 !important;
+      color: #1D1D1B !important;
+    }
+    .btn-primary:hover {
+      background-color: #e6b01e !important;
+      border-color: #e6b01e !important;
+      color: #1D1D1B !important;
+    }
+    .btn-success {
+      background-color: #1D1D1B !important;
+      border-color: #1D1D1B !important;
+      color: #FFFFFF !important;
+    }
+    .btn-success:hover {
+      background-color: #2a2a28 !important;
+      border-color: #2a2a28 !important;
+      color: #FFFFFF !important;
+    }
+    h2, h4, h5 {
+      color: #1D1D1B;
+    }
+    p, td, th {
+      color: #1D1D1B;
+    }
+    .table {
+      color: #1D1D1B;
+    }
+    .table th {
+      color: #1D1D1B;
+    }
+    .table td {
+      color: #1D1D1B;
+    }
+  </style>
+</head>
+<body>
+
+<div class="invoice" id="invoice">
+  <!-- Botones -->
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-primary btn-action" onclick="window.print()">
+      <i class="bi bi-printer"></i> Imprimir
+    </button>
+    <button class="btn btn-success btn-action">
+      <i class="bi bi-download"></i> Descargar PDF
+    </button>
+  </div>
+
+  <!-- Encabezado -->
+  <div class="row invoice-header align-items-center">
+    <div class="col-md-6">
+      <img src="imagenes/LOGORP.png" alt="Logo de la Empresa" style="max-height: 100px;">
+     
+    </div>
+   
+    <div class="col-md-6 text-md-end" style="display: flex; flex-direction: column; align-items: flex-end; justify-content: center; height: 100%;">
+      <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px;">
+        <i class="bi bi-telephone-fill" style="font-size: 2em; color: #1D1D1B;"></i>
+        <div style="text-align: left;">
+          <div style="font-size: 1.1em; color: #1D1D1B;">(777) 365-33-36</div>
+          <div style="font-size: 1.1em; color: #1D1D1B;">(777) 244-81-30</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="https://www.repase.mx" target="_blank" title="Ir al sitio web">
+          <i class="bi bi-globe2" style="font-size: 2em; color: #1D1D1B;"></i>
+        </a>
+        <span style="font-size: 1.1em; color: #1D1D1B; font-weight: 500;">WWW.REPASE.MX</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cliente y Vendedor -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <h5>Cliente:</h5>
+      <p style="font-family: 'Century Gothic', Arial, sans-serif;">
+        <strong>Fecha:</strong> 26/08/2025<br>
+        <strong>Empresa:</strong> Empresa Ejemplo S.A.<br>
+        <strong>Contacto:</strong> Juan Pérez<br>
+        <strong>Correo:</strong> juan.perez@empresa.com
+      </p>
+    </div>
+    <div class="col-md-6 text-md-end">
+      <h5>Cotización:</h5>
+      <p>G-080825<br>
+      <h5>Asesor:</h5>  
+      <p>GISELLE@REPASE.MX<br>      
+        <i class="bi bi-whatsapp" style="color: #25D366; font-size: 1.3em; vertical-align: middle;"></i>
+        <span style="vertical-align: middle;">(777) 30-40-571</span>
+        <br>
+      </p>
+        
+    </div>
+  </div>
+
+  <!-- Tabla de productos/servicios -->
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-primary">
+        <tr>
+          <th>#</th>
+          <th>DESCRIPCION</th>
+          <th>NP</th>
+          <th class="text-end">QTY</th>
+          <th class="text-end">P UNITARIO</th>
+          <th class="text-end">Subtotal</th>
+          <th class="text-end">T. ENTREGA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Producto/Servicio 1</td>
+          <td>1234567890</td>
+          <td class="text-end">2</td>
+          <td class="text-end">$500.00</td>
+          <td class="text-end">$1,000.00</td>
+          <td class="text-end">2 meses</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Producto/Servicio 2</td>
+          <td>1234567890</td>
+          <td class="text-end">1</td>
+          <td class="text-end">$750.00</td>
+          <td class="text-end">$750.00</td>
+          <td class="text-end">2 meses</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th class="text-end"></th>
+          <th class="text-end"></th>
+          <th colspan="4" class="text-end">Subtotal</th>
+          <th class="text-end">$1,750.00</th>
+         
+        </tr>
+        <tr>
+            <th class="text-end"></th>
+            <th class="text-end"></th>
+          <th colspan="4" class="text-end">IVA (16%)</th>
+          <th class="text-end">$280.00</th>
+         
+        </tr>
+        <tr class="table-success">
+            <th class="text-end"></th>
+            <th class="text-end"></th>
+          <th colspan="4" class="text-end">Total</th>
+          <th class="text-end">$2,030.00</th>
+          
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- Notas -->
+  <div class="row mt-4">
+    <div class="col-12">
+    <div class="row">
+      <div class="col-md-7">
+        <table style="width:100%; border:none; background:transparent;">
+          <tbody>
+            <tr>
+              <td style="font-weight:bold; letter-spacing:2px; color:#1D1D1B; font-size:0.95em;">MODELO/SERIE</td>
+              <td></td>
+              <td rowspan="6" style="vertical-align:top; font-weight:bold; letter-spacing:2px; color:#1D1D1B; text-align:center; font-size:0.95em;">COMENTARIOS</td>
+            </tr>
+            <tr>
+              <td style="font-weight:bold; letter-spacing:2px; color:#1D1D1B; font-size:0.95em;">MARCA</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td style="font-weight:bold; letter-spacing:2px; color:#1D1D1B; font-size:0.95em;">MONEDA</td>
+              <td style="color:#1D1D1B; font-size:0.95em;">DOLARES</td>
+            </tr>
+            <tr>
+              <td style="font-weight:bold; letter-spacing:2px; color:#1D1D1B; font-size:0.95em;">LAB</td>
+              <td style="color:#E74C3C; font-size:0.95em;">SUS INSTALACIONES</td>
+            </tr>
+            <tr>
+              <td style="font-weight:bold; letter-spacing:2px; color:#1D1D1B; font-size:0.95em;">FORMA DE PAGO</td>
+              <td style="color:#1D1D1B; font-size:0.95em;">CREDITO</td>
+            </tr>
+            <tr>
+              <td style="font-weight:bold; letter-spacing:2px; color:#1D1D1B; font-size:0.95em;">VIGENCIA</td>
+              <td style="color:#1D1D1B; font-size:0.95em;">10 DÍAS HÁBILES</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- Pie de página -->
+  <div class="invoice-footer">
+    <p>www.repase.mx</p>
+  </div>
+</div>
+
+</body>
+</html>
